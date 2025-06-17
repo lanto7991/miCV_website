@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi CV Web</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Mi Currículum</h1>
+
+  <!-- Imagen centrada debajo del título -->
+  <img src="img/perfil.jpg" alt="Foto de perfil" class="perfil-img">
+
+  <!-- Botones -->
+  <button data-msg="Hola, soy Lucas. Desarrollador front-end con pasión por el diseño y la tecnología.">Sobre mí</button>
+  <button data-msg="Estos son algunos de mis proyectos web más recientes. ¡Exploralos!">Proyectos</button>
+  <button id="btn-contacto">Contacto</button>
+
+  <!-- Popup de contacto -->
+<div id="popup-form" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <form action="https://formsubmit.co/tu-email@gmail.com" method="POST" class="formulario-contacto">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <textarea name="mensaje" placeholder="Escribí tu mensaje" required></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup personalizado -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <p id="popup-message"></p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
