@@ -1,9 +1,148 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-    background: #f5f5f5;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra vertical */
+  align-items: center;     /* centra horizontal */
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+/* Contenedor para botones en fila */
+.botones {
+  display: flex;
+  gap: 15px; /* separación entre botones */
+  margin-top: 20px;
+}
+
+/* Estilo botones */
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+  .perfil-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.popup {
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  min-width: 300px;
+  max-width: 80%;
+  max-height: 90vh;  /* para que no se pase de la pantalla vertical */
+  overflow-y: auto;  /* si el contenido es alto, que salga scroll */
+  animation: slideUp 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* esto centra todo el contenido dentro del popup-content */
+}
+
+.perfil-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#modo-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 6px;
+  transition: transform 0.3s;
+  color: inherit;
+}
+
+#modo-toggle:hover {
+  transform: scale(1.2);
+}
+  
+body.oscuro {
+  background-color: #121212;
+  color: white;
+}
+
+body.oscuro .popup-content {
+  background-color: #1e1e1e;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.close-btn:hover {
+  color: #ff6666;
+}
+
+/* MODO OSCURO PARA FORMULARIO */
+body.oscuro .formulario-contacto {
+  background-color: #1e1e1e;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.oscuro .formulario-contacto input,
+body.oscuro .formulario-contacto textarea {
+  background-color: #2b2b2b;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.oscuro .formulario-contacto input::placeholder,
+body.oscuro .formulario-contacto textarea::placeholder {
+  color: #aaa;
+}
+
+/* También podés adaptar otros elementos */
+.card {
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+body.oscuro .card {
+  background-color: #1e1e1e;
+  color: white;
+}
   
   button {
     margin: 10px;
@@ -126,3 +265,102 @@ body {
   .formulario-contacto button:hover {
     background-color: #0056b3;
   }
+
+
+.hidden {
+  display: none;
+}
+
+#seccion-proyectos {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#seccion-proyectos.show {
+  display: block; /* para que ocupe espacio */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.proyecto {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.proyecto-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.tarjeta-sobre-mi {
+  max-width: 350px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  color: #333;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+}
+
+body.oscuro .tarjeta-sobre-mi {
+  background-color: #1e1e1e;
+  color: #ddd;
+  box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+}
+
+.tarjeta-sobre-mi img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.tarjeta-sobre-mi h2 {
+  margin: 0 0 10px 0;
+}
+
+.tarjeta-sobre-mi p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.tarjeta-sobre-mi .info-adicional {
+  font-size: 14px;
+  color: #666;
+}
+
+body.oscuro .tarjeta-sobre-mi .info-adicional {
+  color: #aaa;
+}
+
+.redes-sociales {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.redes-sociales a {
+  color: inherit; /* toma el color del texto */
+  text-decoration: none;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+  color: #007bff;
+}
